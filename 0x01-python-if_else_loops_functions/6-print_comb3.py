@@ -4,4 +4,5 @@ for i in range(9):
 		print("{}".format(i), end="")
 		if i == 8 and j == 9:
 			print("9")
+			break
 		print("{}, ".format(j), end="")
