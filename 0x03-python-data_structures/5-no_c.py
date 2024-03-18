@@ -7,4 +7,4 @@ def no_c(my_string):
             continue
         a.append(i)
         a = ''.join(a)
-        return (a)
+    return (a)
