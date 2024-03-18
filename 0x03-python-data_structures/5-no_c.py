@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 def no_c(my_string):
-	a = list(my_string)
+	a = []
 	x = 0
 
-	for i in a:
-		if i == 'c' or i == 'C':
-			a.pop(x)
-			x -= 1
-		x += 1
-	my_string = ''.join(a)
-	return (my_string)
+	for i in my_string:
+		if i in 'cC':
+			continue
+		a.append(i)
+	a = ''.join(a)
+	return (a)
