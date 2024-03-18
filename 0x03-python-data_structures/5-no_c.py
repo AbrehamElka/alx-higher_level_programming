@@ -6,5 +6,5 @@ def no_c(my_string):
         if i in 'cC':
             continue
         a.append(i)
-        a = ''.join(a)
+    a = ''.join(a)
     return (a)
