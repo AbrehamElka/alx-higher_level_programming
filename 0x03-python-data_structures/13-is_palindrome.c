@@ -19,9 +19,15 @@ listint_t *reverse_list(listint_t **head)
 	}
 	return (prev);
 }
+/**
+* is_palindrome - checkes if a list is palindrome
+* @head: the begining of the list.
+*
+* Return: 1 if it is palindrome and 0 if not.
+*/
 int is_palindrome(listint_t **head)
 {
-	listint_t *fast = *head, *slow = *head, *prev_slow, *mid, *second_half, *first_half;
+	listint_t *fast = *head, *slow = *head, *prev_slow, *mid, *second_h, *first_h;
 	int ispal = 1;
 
 	if (*head == NULL)
@@ -38,27 +44,27 @@ int is_palindrome(listint_t **head)
 		slow = slow->next;
 	}
 	prev_slow->next = NULL;
-	second_half = reverse_list(&slow);
-	first_half = *head;
-	while (second_half != NULL && first_half != NULL)
+	second_h = reverse_list(&slow);
+	first_h = *head;
+	while (second_h != NULL && first_h != NULL)
 	{
-		if (second_half->n != first_half->n)
+		if (second_h->n != first_h->n)
 		{
 			ispal = 0;
 			break;
 		}
-		second_half = second_half->next;
-		first_half = first_half->next;
+		second_h = second_h->next;
+		first_h = first_h->next;
 	}
-	second_half = reverse_list(&slow);
+	second_h = reverse_list(&slow);
 	if (mid == NULL)
 	{
-		prev_slow->next = second_half;
+		prev_slow->next = second_h;
 	}
 	else
 	{
 		prev_slow->next = mid;
-		mid->next = second_half;
+		mid->next = second_h;
 	}
 	return (ispal);
 }
