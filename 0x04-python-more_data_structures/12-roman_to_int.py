@@ -5,16 +5,18 @@ def roman_to_int(roman_string):
 	tot = 0
 	val = 0
 	prev = 0
+	idx = 0
 	if (not isinstance(roman_string, str) or roman_string is None):
 		return (0)
 	for i in roman_string:
-		if roman_d.get(roman_string[i], 0) == 0:
+		if dict_r.get(roman_string[idx], 0) == 0:
 			return (0)
 		val = dict_r[i]
-		if val > prev and not jump:
+		if val > prev:
 			tot = tot - prev
 			tot = tot + val - prev
 		else:
 			tot += val
 		prev = val
+		idx += 1
 	return (tot)
