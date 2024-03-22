@@ -5,12 +5,15 @@ def roman_to_int(roman_string):
 	tot = 0
 	val = 0
 	prev = 0
+	jump = False
 	for i in roman_string:
 		val = dict_r[i]
-		if val > prev:
+		if val > prev and not jump:
 			tot = tot - prev
 			tot = tot + val - prev
+			jump = True
 		else:
 			tot += val
+			jump = False
 		prev = val
 	return (tot)
