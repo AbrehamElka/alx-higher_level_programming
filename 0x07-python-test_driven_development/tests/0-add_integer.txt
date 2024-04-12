@@ -1,0 +1,67 @@
+# run test with python3 -m doctest -v ./tests/0-add_integer.txt
+
+First import method to test
+>>> add_integer = __import__('0-add_integer').add_integer
+
+SUCCESS CASES:
+
+    Test Signed and Unsigned float and int:
+        >>> print(add_integer(1, 2))
+        3
+        >>> print(add_integer(-1, 2))
+        1
+        >>> print(add_integer(1.1, 2.2))
+        3
+        >>> print(add_integer(-1.1, 2.2))
+        1
+
+    Test Use Of Default b=98:
+        >>> print(add_integer(1))
+        99
+
+FAIL CASES:
+
+    Test No Args:
+        >>> print(add_integer())
+        Traceback (most recent call last):
+        ...
+        TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    Test input None:
+        >>> print(add_integer(None))
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer
+        >>> print(add_integer(None, None))
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer
+
+    Test extra Args:
+        >>> print(add_integer(1, 2, 3))
+        Traceback (most recent call last):
+        ...
+        TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+    Test a string data type as argument:
+        >>> print(add_integer("hi"))
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer
+
+    Test adding infintiy:
+        >>> print(add_integer(float("inf")))
+        Traceback (most recent call last):
+        ...
+        OverflowError: cannot convert float infinity to integer
+        >>> print(add_integer(float("-inf")))
+        Traceback (most recent call last):
+        ...
+        OverflowError: cannot convert float infinity to integer
+
+    Test NaN(not a number) as an arg:
+        >>> print(add_integer(float("NaN")))
+        Traceback (most recent call last):
+        ...
+        ValueError: cannot convert float NaN to integer
+
