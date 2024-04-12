@@ -1,0 +1,18 @@
+# run with python3 -m doctype -v ./tests/5-text_indentation.txt
+
+First import the method to test
+>>> text_indent = __import__('5-text_indentation').text_indentation
+
+FAIL CASES:
+
+    Test a none string datatype as an argument:
+        >>> text_indent(1)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+    Test no arg:
+        >>> text_indent()
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'
