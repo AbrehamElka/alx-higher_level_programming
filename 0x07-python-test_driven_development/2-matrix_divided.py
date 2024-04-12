@@ -5,11 +5,13 @@ contains one function that divides  a matrix with a num.
 Matrix Divider.
 """
 
+
 def matrix_divided(matrix, div):
     """
     Returns: A Matrix(matrix/div).
     """
-    
+
+    msg = "matrix must be a matrix (list of lists) of integers/floats"
     if div == 0:
         raise ZeroDivisionError("division by zero")
     if not isinstance(div, (int, float)):
@@ -17,7 +19,10 @@ def matrix_divided(matrix, div):
     if isinstance(matrix, list):
         for item in matrix:
             if not isinstance(item, list):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError(msg)
+            for i in item:
+                if not isinstance(i, (int, float)):
+                    raise TypeError(msg)
     len_row = len(matrix[0])
     mat = []
 
