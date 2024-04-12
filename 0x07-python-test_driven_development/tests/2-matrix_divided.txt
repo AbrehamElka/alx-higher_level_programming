@@ -1,0 +1,36 @@
+#run test with python3 -m doctest ./test/2-matrix_divided.txt
+
+First import method to test
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+FAIL CASES:
+    Test incorrect number of arg:
+        >>> result = matrix_divided()
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+    Test wrong input(not a list of lists):
+        >>> result = matrix_divided([1, 2, 3], 2)
+	Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test division by zero:
+	>>> result = matrix_divided([[1, 2, 3]], 0)
+	Traceback (most recent call last):
+        ...
+        ZeroDivisionError: division by zero
+
+    Test if div is not a number:
+	>>> result = matrix_divided([[1, 2, 3]], "hi")
+        Traceback (most recent call last):
+        ...
+        TypeError: div must be a number
+
+    Test not equal rows for the matrix:
+        >>> result = matrix_divided([[1, 2, 3], [1, 2]], 2)
+        Traceback (most recent call last):
+        ...
+        TypeError: Each row of the matrix must have the same size
+
