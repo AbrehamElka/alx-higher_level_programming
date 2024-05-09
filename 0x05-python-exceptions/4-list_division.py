@@ -24,5 +24,6 @@ def list_division(my_list_1, my_list_2, list_length):
         except TypeError:
             print("wrong type")
             list_.append(0)
-        i = i + 1
+        finally:
+            i = i + 1
     return (list_)
