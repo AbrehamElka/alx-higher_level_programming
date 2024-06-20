@@ -16,6 +16,7 @@ class Rectangle:
     @property
     def width(self):
         return self.__width
+
     @property
     def height(self):
         return self.__height
