@@ -50,8 +50,8 @@ class Rectangle:
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
-        rectangle_string = "\n".join(["#" * self.width for _ in range(self.height)])
-        return rectangle_string
+        rec = "\n".join(["#" * self.width for _ in range(self.height)])
+        return rec
 
     def __repr__(self):
         return "<3-rectangle.Rectangle object at {}>".format(hex(id(self)))
